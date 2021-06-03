@@ -1,0 +1,11 @@
+INDEX VERSION 1.131+D:\workspace - eclipse\ws-eclipse\curso_pragramacao\.metadata\.plugins\org.eclipse.jdt.core
+638434496.index
+1027235066.index
+24409747.index
+3671109872.index
+1851651335.index
+63620582.index
+122525707.index
+1068056636.index
+1982598475.index
+3937591431.index
