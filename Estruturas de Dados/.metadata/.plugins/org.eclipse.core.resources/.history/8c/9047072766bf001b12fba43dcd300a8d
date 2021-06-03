@@ -1,0 +1,69 @@
+
+public class FilaDinamica {
+	
+	private No inicio;
+	private No fim;
+	private int tamanho;
+
+	public FilaDinamica() {
+		this.inicio = null;
+		this.fim = null;
+		this.tamanho = 0;
+	}
+	
+	public boolean isEmpty() {
+		if (this.inicio == null && this.fim == null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public int length() {
+		return this.tamanho;
+	}
+	
+	public void inserePrimeiro(double valor) {
+		No temp = new No();
+		temp.setValor(valor);
+		temp.setProx(null);
+		this.inicio = temp;
+		this.fim = temp;
+		this.tamanho++;
+	}
+	
+	public void insereComeco(double valor) {
+		No temp = new No();
+		if (isEmpty()) {
+			inserePrimeiro(valor);
+		} else {
+			temp.setValor(valor);
+			temp.setProx(this.inicio);
+			this.inicio = temp;
+			this.tamanho++;
+		}
+	}
+
+	public double leElemento(int pos) {
+		if (isEmpty()) {
+			System.out.println("Lista vazia");
+			return 0;
+		} else if (pos < 0 || pos > this.tamanho - 1) {
+			System.out.println("Posição inválida");
+			return 0;
+		} else if (pos == 0) {
+			return this.inicio.getValor();
+		} else if (pos == this.tamanho - 1) {
+			return this.fim.getValor();
+		} else {
+			No ant = this.inicio;
+			No prox = ant.getProx();
+
+			for (int i = 1; i < pos; i++) {
+				ant = prox;
+				prox = ant.getProx();
+			}
+			return prox.getValor();
+		}
+	}
+}

@@ -1,0 +1,29 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		PilhaDinamica pilha = new PilhaDinamica();
+		
+		pilha.push(40);
+		pilha.push(11);
+		pilha.push(12);
+		pilha.push(73);
+		pilha.push(84);
+		pilha.push(65);
+		pilha.push(36);
+		pilha.push(119);
+		pilha.push(10);
+		System.out.println(pilha.peek());
+		pilha.imprimir();
+		
+		pilha.pop();
+		System.out.println(pilha.peek());
+		pilha.imprimir();
+		pilha.pop();
+		System.out.println(pilha.peek());
+		pilha.imprimir();
+
+	}
+
+}

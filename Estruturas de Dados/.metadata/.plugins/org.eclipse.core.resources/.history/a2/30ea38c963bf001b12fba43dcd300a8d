@@ -1,0 +1,49 @@
+
+public class PilhaDinamica {
+
+	private No inicio;
+	private No fim;
+	private int tamanho;
+
+	public PilhaDinamica() {
+		this.inicio = null;
+		this.fim = null;
+		this.tamanho = 0;
+	}
+	
+	public boolean isEmpty() {
+		if (this.inicio == null && this.fim == null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public void inserePrimeiro(double valor) {
+		No temp = new No();
+		temp.setValor(valor);
+		temp.setProx(null);
+		this.inicio = temp;
+		this.fim = temp;
+		this.tamanho++;
+	}
+	
+	
+	
+	public double pop() {
+		if (isEmpty()) {
+			System.out.println("Lista vazia");
+			return 0;
+		} else if (this.tamanho == 1) {
+			return removeUltimo();
+		} else {
+			No temp = this.inicio;
+			this.inicio = temp.getProx();
+			double valor = temp.getValor();
+			temp = null;
+			System.gc();
+			this.tamanho--;
+			return valor;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+
+public class FilaDinamica {
+
+	public double leElemento(int pos) {
+		if (isEmpty()) {
+			System.out.println("Lista vazia");
+			return 0;
+		} else if (pos < 0 || pos > this.tamanho - 1) {
+			System.out.println("Posição inválida");
+			return 0;
+		} else if (pos == 0) {
+			return this.inicio.getValor();
+		} else if (pos == this.tamanho - 1) {
+			return this.fim.getValor();
+		} else {
+			No ant = this.inicio;
+			No prox = ant.getProx();
+
+			for (int i = 1; i < pos; i++) {
+				ant = prox;
+				prox = ant.getProx();
+			}
+			return prox.getValor();
+		}
+	}
+}

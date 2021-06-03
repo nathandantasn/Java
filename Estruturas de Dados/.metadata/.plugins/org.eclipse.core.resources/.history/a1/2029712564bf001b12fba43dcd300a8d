@@ -1,0 +1,14 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		PilhaDinamica pilha = new PilhaDinamica();
+		
+		pilha.push(10);
+		pilha.push(11);
+		pilha.push(12);
+
+	}
+
+}

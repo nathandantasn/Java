@@ -1,0 +1,87 @@
+
+public class PilhaDinamica {
+
+	private No inicio;
+	private No fim;
+	private int tamanho;
+
+	public PilhaDinamica() {
+		this.inicio = null;
+		this.fim = null;
+		this.tamanho = 0;
+	}
+	
+	public boolean isEmpty() {
+		if (this.inicio == null && this.fim == null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public void inserePrimeiro(double valor) {
+		No temp = new No();
+		temp.setValor(valor);
+		temp.setProx(null);
+		this.inicio = temp;
+		this.fim = temp;
+		this.tamanho++;
+	}
+	
+	public void push(double valor) {
+		No temp = new No();
+		if (isEmpty()) {
+			inserePrimeiro(valor);
+		} else {
+			temp.setValor(valor);
+			temp.setProx(this.inicio);
+			this.inicio = temp;
+			this.tamanho++;
+		}
+	}
+	
+	public double removeUltimo() {
+		if (isEmpty()) {
+			System.out.println("Lista vazia");
+			return 0;
+		} else if (this.tamanho > 1) {
+			System.out.println("Vários elementos");
+			return 0;
+		} else {
+			No temp = this.inicio;
+			this.inicio = null;
+			this.fim = null;
+			this.tamanho = 0;
+			double valor = temp.getValor();
+			temp = null;
+			System.gc();
+			return valor;
+		}
+	}
+	
+	public double pop() {
+		if (isEmpty()) {
+			System.out.println("Lista vazia");
+			return 0;
+		} else if (this.tamanho == 1) {
+			return removeUltimo();
+		} else {
+			No temp = this.inicio;
+			this.inicio = temp.getProx();
+			double valor = temp.getValor();
+			temp = null;
+			System.gc();
+			this.tamanho--;
+			return valor;
+		}
+	}
+	
+	public void destroy() {
+		for (int i =0; i < this.tamanho; i++) {
+			push();
+		}
+		this.inicio = null;
+		this.fim = null;
+		this.tamanho = 0;
+	}
+}
