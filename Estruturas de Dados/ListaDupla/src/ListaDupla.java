@@ -131,6 +131,119 @@ public class ListaDupla {
            }
        }      
        
-   }	
+   }
+   
+   public double leElemento(int pos) {
+	   if (isEmpty()) {
+		   System.out.println("Lista vazia");
+		   return 0;
+	   } else if (pos == 0) {
+		   return this.inicio.getValor();
+	   } else if (pos == length() - 1) {
+		   return this.fim.getValor();
+	   } else if (pos < (length()/2+1)) {
+		   No ant = this.inicio;
+		   No prox = ant.getPosterior();
+		   
+		   for (int i=1; i<pos;i++) {
+			   ant = prox;
+			   prox = ant.getPosterior();
+		   }
+		   return prox.getValor();
+	   } else if (pos > length()/2-1){
+		   No ant = this.fim;
+		   No prox = ant.getAnterior();
+		   for (int i=length()-1; i >= pos; i--) {
+			   ant = prox;
+			   prox = ant.getAnterior();
+		   }
+		   return prox.getValor();
+	   } else {
+		   return 0;
+	   }
+   }
+   
+   private double removeUnico() {
+	   No temp = this.inicio;
+	   
+	   this.inicio = null;
+	   this.fim = null;
+	   this.tamanho = 0;
+	   
+	   double valor = temp.getValor();
+	   temp = null;
+	   System.gc();
+	   
+	   return valor;
+   }
+   
+   public double removeComeco() {
+	   if (isEmpty()) {
+		   System.out.println("Lista vazia");
+		   return 0;
+	   } else if (length()==1) {
+		   return removeUnico();
+	   } else {
+		   No temp = this.inicio;
+		   double valor = temp.getValor();
+		   this.inicio = temp.getPosterior();
+		   this.inicio.setAnterior(null);
+		   this.tamanho--;
+		   
+		   temp = null;
+		   System.gc();
+		   return valor;
+	   }
+   }
+   
+   public double removeFinal() {
+	   if (isEmpty()) {
+		   System.out.println("Lista vazia");
+		   return 0;
+	   } else if (length()==1) {
+		   return removeUnico();
+	   } else {
+		   No temp = this.fim;
+		   double valor = temp.getValor();
+		   
+		   this.fim = temp.getAnterior();
+		   this.fim.setPosterior(null);
+		   this.tamanho--;
+		   
+		   temp = null;
+		   System.gc();
+		   
+		   return valor;
+	   }
+   }
+   
+   public double removeMeio(int pos) {
+	   if (isEmpty()) {
+		   System.out.println("Lista vazia");
+		   return 0;
+	   } else if (pos == 0) {
+		   return removeComeco();
+	   } else if (pos == (length()-1)) {
+		   return removeFinal();
+	   } else if (pos >= length()/2+1) {
+		   No ant = this.inicio;
+		   No prox = ant.getPosterior();
+		   
+		   for(int i =1; i < pos; i++) {
+			   ant = prox;
+			   prox = ant.getPosterior();
+		   }
+		   
+		   No prox1 = prox.getPosterior();
+		   No temp = prox;
+		   double valor = temp.getValor();
+		   ant.setPosterior(prox1);
+		   prox1.setAnterior(ant);
+		   this.tamanho--;
+		   temp= null;
+		   System.gc();
+		   return valor;
+	   }
+   }
 
 }
