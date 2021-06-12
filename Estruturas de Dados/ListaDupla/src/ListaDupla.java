@@ -243,6 +243,26 @@ public class ListaDupla {
 		   temp= null;
 		   System.gc();
 		   return valor;
+	   } else if (pos > length()/2-1) {
+		   No ant = this.fim;
+		   No prox = ant.getAnterior();
+		   
+		   for (int i=length()-2; i > pos; i--) {
+			   ant = prox;
+			   prox = ant.getAnterior();
+		   }
+		   
+		   No prox1 = prox.getAnterior();
+		   No temp = prox;
+		   double valor = temp.getValor();
+		   ant.setAnterior(prox1);
+		   prox.setPosterior(ant);
+		   this.tamanho--;
+		   temp = null;
+		   System.gc();
+		   return valor;
+	   } else {
+		   return 0;
 	   }
    }
 
