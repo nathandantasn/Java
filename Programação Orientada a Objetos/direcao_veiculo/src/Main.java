@@ -3,13 +3,8 @@ public class Main {
 
 	public static void main(String[]args) {
 		
-		Veiculo ferrari = new Veiculo();
-		Veiculo porsche = new Veiculo();
-		
-		ferrari.setAnoFabricacao(2007);
-		ferrari.setPreco(900000);
-		porsche.setAnoFabricacao(2021);
-		porsche.setPreco(1241000);
+		Veiculo ferrari = new Veiculo(1997, 900000);
+		Veiculo porsche = new Veiculo(2021, 1241000, "verde");
 		
 		System.out.println(ferrari.precoAnoFabricacaoVeiculo());
 		System.out.println(porsche.precoAnoFabricacaoVeiculo());
