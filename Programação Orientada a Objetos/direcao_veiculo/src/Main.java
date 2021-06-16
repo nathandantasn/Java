@@ -8,7 +8,20 @@ public class Main {
 		
 		System.out.println(ferrari.precoAnoFabricacaoVeiculo());
 		System.out.println(porsche.precoAnoFabricacaoVeiculo());
-		
+		System.out.println("");
+		ferrari.direcao.virarEsquerda();
+		ferrari.mostrarDirecao();
+		ferrari.direcao.virarDireita();
+		ferrari.mostrarDirecao();
+		ferrari.direcao.avancar();
+		ferrari.mostrarDirecao();
+		System.out.println("");
+		porsche.direcao.virarDireita();
+		porsche.mostrarDirecao();
+		porsche.direcao.avancar();
+		porsche.mostrarDirecao();
+		porsche.direcao.virarEsquerda();
+		porsche.mostrarDirecao();
 	}
 	
 }
