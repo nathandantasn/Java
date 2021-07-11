@@ -2,9 +2,7 @@ public class Main {
 
     public static void main (String[]args){
 
-        Carro golf = new Carro();
-        golf.setMarca("Volkswagem");
-        golf.setNome("Golf");
+        Carro golf = new Carro("Volkswagem", "Golf", 2019);
         golf.setQuantidadeDePessoas(5);
         golf.adicionarPessoa(6);
         golf.adicionarPessoa(5);

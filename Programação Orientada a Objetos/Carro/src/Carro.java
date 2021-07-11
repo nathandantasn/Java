@@ -1,11 +1,18 @@
 public class Carro {
     private int quantidadeDePessoas;
     private String marca;
-    private String nome;
+    private String modelo;
+    private int ano;
     private int pessoasNoCarro =0;
 
-    public void setNome(final String nome) {
-        this.nome = nome;
+    public Carro (final String marca, final String modelo, final int ano){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+    }
+
+    public void setModelo(final String modelo) {
+        this.modelo = modelo;
     }
 
     public void setMarca(final String marca){
@@ -34,7 +41,8 @@ public class Carro {
 
     public String imprimirDados(){
         return "Marca: " + this.marca + "\n"
-                + "Nome: " + this.nome + "\n"
+                + "Modelo: " + this.modelo + "\n"
+                + "Ano: " + this.ano + "\n"
                 + "Suporta " + this.quantidadeDePessoas + " pessoas\n"
                 + "Quantidade de pessoas no carro: " + this.pessoasNoCarro;
     }
